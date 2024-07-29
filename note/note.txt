@@ -1,0 +1,100 @@
+// to remove laravel log
+php -r "file_put_contents('/var/www/html/shweboslot/storage/logs/laravel.log', '');"
+// created dev branch for kzt
+
+SET FOREIGN_KEY_CHECKS = 0;
+TRUNCATE TABLE users;
+SET FOREIGN_KEY_CHECKS = 1;
+
+php artisan session:update-status
+php artisan make:pull-report
+
+# Adjust permissions
+sudo chown -R www-data:www-data /var/www/html/shweboslot/storage /var/www/html/shweboslot/bootstrap/cache
+
+# Ensure the directories are writable
+sudo chmod -R 775 /var/www/html/shweboslot/storage /var/www/html/shweboslot/bootstrap/cache
+
+
+tail -f /var/www/html/shweboslot/storage/logs/laravel.log
+
+
+php artisan cache:clear
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
+
+crontab -e
+
+--------------------------------
+for 3d group by running match 
+SELECT
+    running_match,
+    COUNT(*) as total_records,
+    SUM(sub_amount) as total_amount
+FROM
+    lottery_three_digit_pivots
+GROUP BY
+    running_match;
+--------------------------------
+SELECT
+    lottery_three_digit_pivots.running_match,
+    users.user_name,
+    users.phone,
+    lottery_three_digit_pivots.agent_id,
+    lottery_three_digit_pivots.bet_digit,
+    lottery_three_digit_pivots.sub_amount,
+    lottery_three_digit_pivots.res_date,
+    lottery_three_digit_pivots.res_time,
+    lottery_three_digit_pivots.play_date,
+    lottery_three_digit_pivots.play_time,
+    lottery_three_digit_pivots.match_start_date,
+    lottery_three_digit_pivots.match_status,
+    lottery_three_digit_pivots.win_lose,
+    lottery_three_digit_pivots.prize_sent,
+    COUNT(*) as total_records,
+    SUM(lottery_three_digit_pivots.sub_amount) as total_amount
+FROM
+    lottery_three_digit_pivots
+JOIN
+    users ON lottery_three_digit_pivots.user_id = users.id
+GROUP BY
+    lottery_three_digit_pivots.running_match,
+    users.user_name,
+    users.phone,
+    lottery_three_digit_pivots.agent_id,
+    lottery_three_digit_pivots.bet_digit,
+    lottery_three_digit_pivots.sub_amount,
+    lottery_three_digit_pivots.res_date,
+    lottery_three_digit_pivots.res_time,
+    lottery_three_digit_pivots.play_date,
+    lottery_three_digit_pivots.play_time,
+    lottery_three_digit_pivots.match_start_date,
+    lottery_three_digit_pivots.match_status,
+    lottery_three_digit_pivots.win_lose,
+    lottery_three_digit_pivots.prize_sent;
+-----------------------------------------------
+SELECT
+    lottery_three_digit_pivots.running_match,
+    users.user_name,
+    users.phone,
+    lottery_three_digit_pivots.agent_id,
+    lottery_three_digit_pivots.bet_digit,
+    lottery_three_digit_pivots.sub_amount,
+    lottery_three_digit_pivots.res_date,
+    lottery_three_digit_pivots.res_time,
+    lottery_three_digit_pivots.play_date,
+    lottery_three_digit_pivots.play_time,
+    lottery_three_digit_pivots.match_start_date,
+    lottery_three_digit_pivots.match_status,
+    lottery_three_digit_pivots.win_lose,
+    lottery_three_digit_pivots.prize_sent,
+    COUNT(*) as total_records,
+    SUM(lottery_three_digit_pivots.sub_amount) as total_amount
+FROM
+    lottery_three_digit_pivots
+JOIN
+    users ON lottery_three_digit_pivots.user_id = users.id
+GROUP BY
+    lottery_three_digit_pivots.running_match;
+----------------------------------------------------------

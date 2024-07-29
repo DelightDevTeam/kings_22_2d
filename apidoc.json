@@ -1,0 +1,913 @@
+{
+    "info": {
+        "_postman_id": "4b4a0d37-f9b8-4ef2-98a4-688feb8afd22",
+        "name": "ShweBo_Slot_2d_3d",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_exporter_id": "29231020"
+    },
+    "item": [
+        {
+            "name": "ChangePassword",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {
+                            "key": "current_password",
+                            "value": "password",
+                            "type": "text"
+                        },
+                        {
+                            "key": "password",
+                            "value": "password",
+                            "type": "text"
+                        },
+                        {
+                            "key": "password_confirmation",
+                            "value": "password",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "{{url}}/changePassword",
+                    "host": ["{{url}}"],
+                    "path": ["changePassword"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "login",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {
+                            "key": "phone",
+                            "value": "09111111111",
+                            "type": "text"
+                        },
+                        {
+                            "key": "password",
+                            "value": "password",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "{{local_url}}/login",
+                    "host": ["{{local_url}}"],
+                    "path": ["login"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "two_d_play",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Response status code is 200\", function () {\r",
+                            "  pm.response.to.have.status(200);\r",
+                            "});\r",
+                            "\r",
+                            "\r",
+                            "pm.test(\"Response time is less than 200ms\", function () {\r",
+                            "  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+                            "});\r",
+                            "\r",
+                            "\r",
+                            "pm.test(\"Verify response content type is text/xml\", function () {\r",
+                            "    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"text/xml\");\r",
+                            "});\r",
+                            ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                    }
+                }
+            ],
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{token}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"totalAmount\": 20,\r\n    \"amounts\": [\r\n        {\r\n            \"num\": \"45\",\r\n            \"amount\": 10\r\n        },\r\n        \r\n          {\r\n            \"num\": \"48\",\r\n            \"amount\": 10\r\n        }\r\n    ]\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{url}}/2d/two-d-play",
+                    "host": ["{{url}}"],
+                    "path": ["2d", "two-d-play"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "two_d_play local",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Response status code is 200\", function () {\r",
+                            "  pm.response.to.have.status(200);\r",
+                            "});\r",
+                            "\r",
+                            "\r",
+                            "pm.test(\"Response time is less than 200ms\", function () {\r",
+                            "  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+                            "});\r",
+                            "\r",
+                            "\r",
+                            "pm.test(\"Verify response content type is text/xml\", function () {\r",
+                            "    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"text/xml\");\r",
+                            "});\r",
+                            ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                    }
+                }
+            ],
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{token}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"totalAmount\": 250,\r\n    \"amounts\": [\r\n        {\r\n            \"num\": \"91\",\r\n            \"amount\": 50\r\n        },\r\n        \r\n          {\r\n            \"num\": \"53\",\r\n            \"amount\": 50\r\n        },\r\n        {\r\n            \"num\": \"46\",\r\n            \"amount\": 50\r\n        },\r\n        {\r\n            \"num\": \"78\",\r\n            \"amount\": 50\r\n        },\r\n        {\r\n            \"num\": \"01\",\r\n            \"amount\": 50\r\n        }\r\n    ]\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/2d/two-d-play",
+                    "protocol": "http",
+                    "host": ["127", "0", "0", "1"],
+                    "port": "8000",
+                    "path": ["api", "2d", "two-d-play"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "morning-history",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Response status code is 200\", function () {\r",
+                            "  pm.response.to.have.status(200);\r",
+                            "});\r",
+                            "\r",
+                            "\r",
+                            "pm.test(\"Response time is less than 200ms\", function () {\r",
+                            "  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+                            "});\r",
+                            "\r",
+                            "\r",
+                            "pm.test(\"Verify response content type is text/xml\", function () {\r",
+                            "    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"text/xml\");\r",
+                            "});\r",
+                            ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                    }
+                }
+            ],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "2|xa862m0lIl2XKd7Cou1ayGlT2XeaviwMPZDlbtnDe9654897",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"totalAmount\": 400,\r\n    \"amounts\": [\r\n        {\r\n            \"num\": \"52\",\r\n            \"amount\": 200\r\n        },\r\n        \r\n          {\r\n            \"num\": \"62\",\r\n            \"amount\": 200\r\n        }\r\n    ]\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/2d/user/morning-history",
+                    "protocol": "http",
+                    "host": ["127", "0", "0", "1"],
+                    "port": "8000",
+                    "path": ["api", "2d", "user", "morning-history"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "morning-winner-prize",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Response status code is 200\", function () {\r",
+                            "  pm.response.to.have.status(200);\r",
+                            "});\r",
+                            "\r",
+                            "\r",
+                            "pm.test(\"Response time is less than 200ms\", function () {\r",
+                            "  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+                            "});\r",
+                            "\r",
+                            "\r",
+                            "pm.test(\"Verify response content type is text/xml\", function () {\r",
+                            "    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"text/xml\");\r",
+                            "});\r",
+                            ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                    }
+                }
+            ],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{token}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"totalAmount\": 400,\r\n    \"amounts\": [\r\n        {\r\n            \"num\": \"52\",\r\n            \"amount\": 200\r\n        },\r\n        \r\n          {\r\n            \"num\": \"62\",\r\n            \"amount\": 200\r\n        }\r\n    ]\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/2d/user/morning-winner-prize",
+                    "protocol": "http",
+                    "host": ["127", "0", "0", "1"],
+                    "port": "8000",
+                    "path": ["api", "2d", "user", "morning-winner-prize"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "evening-winner-prize",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Response status code is 200\", function () {\r",
+                            "  pm.response.to.have.status(200);\r",
+                            "});\r",
+                            "\r",
+                            "\r",
+                            "pm.test(\"Response time is less than 200ms\", function () {\r",
+                            "  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+                            "});\r",
+                            "\r",
+                            "\r",
+                            "pm.test(\"Verify response content type is text/xml\", function () {\r",
+                            "    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"text/xml\");\r",
+                            "});\r",
+                            ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                    }
+                }
+            ],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{token}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"totalAmount\": 400,\r\n    \"amounts\": [\r\n        {\r\n            \"num\": \"52\",\r\n            \"amount\": 200\r\n        },\r\n        \r\n          {\r\n            \"num\": \"62\",\r\n            \"amount\": 200\r\n        }\r\n    ]\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/2d/user/evening-winner-prize",
+                    "protocol": "http",
+                    "host": ["127", "0", "0", "1"],
+                    "port": "8000",
+                    "path": ["api", "2d", "user", "evening-winner-prize"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "2d-all-winner-prize",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Response status code is 200\", function () {\r",
+                            "  pm.response.to.have.status(200);\r",
+                            "});\r",
+                            "\r",
+                            "\r",
+                            "pm.test(\"Response time is less than 200ms\", function () {\r",
+                            "  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+                            "});\r",
+                            "\r",
+                            "\r",
+                            "pm.test(\"Verify response content type is text/xml\", function () {\r",
+                            "    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"text/xml\");\r",
+                            "});\r",
+                            ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                    }
+                }
+            ],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{token}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"totalAmount\": 400,\r\n    \"amounts\": [\r\n        {\r\n            \"num\": \"52\",\r\n            \"amount\": 200\r\n        },\r\n        \r\n          {\r\n            \"num\": \"62\",\r\n            \"amount\": 200\r\n        }\r\n    ]\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/2d/user/all-winner-prize",
+                    "protocol": "http",
+                    "host": ["127", "0", "0", "1"],
+                    "port": "8000",
+                    "path": ["api", "2d", "user", "all-winner-prize"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "all-2-digit",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Response status code is 200\", function () {\r",
+                            "  pm.response.to.have.status(200);\r",
+                            "});\r",
+                            "\r",
+                            "\r",
+                            "pm.test(\"Response time is less than 200ms\", function () {\r",
+                            "  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+                            "});\r",
+                            "\r",
+                            "\r",
+                            "pm.test(\"Verify response content type is text/xml\", function () {\r",
+                            "    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"text/xml\");\r",
+                            "});\r",
+                            ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                    }
+                }
+            ],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{token}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"totalAmount\": 400,\r\n    \"amounts\": [\r\n        {\r\n            \"num\": \"52\",\r\n            \"amount\": 200\r\n        },\r\n        \r\n          {\r\n            \"num\": \"62\",\r\n            \"amount\": 200\r\n        }\r\n    ]\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{local_url}}/2d/user/all-2-digit",
+                    "host": ["{{local_url}}"],
+                    "path": ["2d", "user", "all-2-digit"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "three-d-play",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{token}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "con",
+                        "value": "",
+                        "disabled": true
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \r\n    \"totalAmount\": 800,\r\n    \"amounts\": [\r\n        {\r\n            \"num\": \"123\",\r\n            \"amount\": 100\r\n        },\r\n        {\r\n            \"num\": \"234\",\r\n            \"amount\": 100\r\n        },\r\n         {\r\n            \"num\": \"345\",\r\n            \"amount\": 100\r\n        },\r\n         {\r\n            \"num\": \"456\",\r\n            \"amount\": 100\r\n        },\r\n         {\r\n            \"num\": \"567\",\r\n            \"amount\": 100\r\n        },\r\n         {\r\n            \"num\": \"678\",\r\n            \"amount\": 100\r\n        },\r\n         {\r\n            \"num\": \"789\",\r\n            \"amount\": 100\r\n        },\r\n         {\r\n            \"num\": \"899\",\r\n            \"amount\": 100\r\n        }\r\n    ]\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{url}}/3d/user/three-d-play",
+                    "host": ["{{url}}"],
+                    "path": ["3d", "user", "three-d-play"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "all-3-digit",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Response status code is 200\", function () {\r",
+                            "  pm.response.to.have.status(200);\r",
+                            "});\r",
+                            "\r",
+                            "\r",
+                            "pm.test(\"Response time is less than 200ms\", function () {\r",
+                            "  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+                            "});\r",
+                            "\r",
+                            "\r",
+                            "pm.test(\"Verify response content type is text/xml\", function () {\r",
+                            "    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"text/xml\");\r",
+                            "});\r",
+                            ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                    }
+                }
+            ],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{token}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"totalAmount\": 400,\r\n    \"amounts\": [\r\n        {\r\n            \"num\": \"52\",\r\n            \"amount\": 200\r\n        },\r\n        \r\n          {\r\n            \"num\": \"62\",\r\n            \"amount\": 200\r\n        }\r\n    ]\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{local_url}}/3d/user/all-3-digit",
+                    "host": ["{{local_url}}"],
+                    "path": ["3d", "user", "all-3-digit"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "evening-history",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Response status code is 200\", function () {\r",
+                            "  pm.response.to.have.status(200);\r",
+                            "});\r",
+                            "\r",
+                            "\r",
+                            "pm.test(\"Response time is less than 200ms\", function () {\r",
+                            "  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+                            "});\r",
+                            "\r",
+                            "\r",
+                            "pm.test(\"Verify response content type is text/xml\", function () {\r",
+                            "    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"text/xml\");\r",
+                            "});\r",
+                            ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {}
+                    }
+                }
+            ],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "2|xa862m0lIl2XKd7Cou1ayGlT2XeaviwMPZDlbtnDe9654897",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"totalAmount\": 400,\r\n    \"amounts\": [\r\n        {\r\n            \"num\": \"52\",\r\n            \"amount\": 200\r\n        },\r\n        \r\n          {\r\n            \"num\": \"62\",\r\n            \"amount\": 200\r\n        }\r\n    ]\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/2d/user/evening-history",
+                    "protocol": "http",
+                    "host": ["127", "0", "0", "1"],
+                    "port": "8000",
+                    "path": ["api", "2d", "user", "evening-history"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "login",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {
+                            "key": "phone",
+                            "value": "09111111111",
+                            "type": "text"
+                        },
+                        {
+                            "key": "password",
+                            "value": "password",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "{{local_url}}/login",
+                    "host": ["{{local_url}}"],
+                    "path": ["login"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "WithdrawRequest",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {
+                            "key": "bank_id",
+                            "value": "1",
+                            "type": "text"
+                        },
+                        {
+                            "key": "amount",
+                            "value": "1000",
+                            "type": "text"
+                        },
+                        {
+                            "key": "account_name",
+                            "value": "Test",
+                            "type": "text"
+                        },
+                        {
+                            "key": "account_no",
+                            "value": "111111111",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "{{url}}/transaction/withdraw",
+                    "host": ["{{url}}"],
+                    "path": ["transaction", "withdraw"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "DepositRequest",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {
+                            "key": "bank_id",
+                            "value": "1",
+                            "type": "text"
+                        },
+                        {
+                            "key": "amount",
+                            "value": "1000",
+                            "type": "text"
+                        },
+                        {
+                            "key": "account_name",
+                            "value": "Test",
+                            "type": "text"
+                        },
+                        {
+                            "key": "account_no",
+                            "value": "111111111",
+                            "type": "text"
+                        },
+                        {
+                            "key": "refrence_no",
+                            "value": "100",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "{{url}}/transaction/deposit",
+                    "host": ["{{url}}"],
+                    "path": ["transaction", "deposit"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "api_test",
+            "request": {
+                "method": "GET",
+                "header": []
+            },
+            "response": []
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "token",
+                "value": "{{token}}",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [""]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [""]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "token",
+            "value": "1|UzCc73p6b0h9bZHdulRWuXZbCC1KyuofSCxrGMdh04f48087",
+            "type": "string"
+        },
+        {
+            "key": "url",
+            "value": "https://www.shwebo2d3dapi.online/api",
+            "type": "string"
+        },
+        {
+            "key": "local_url",
+            "value": "http://localhost:8000/api",
+            "type": "string",
+            "disabled": true
+        }
+    ]
+}
