@@ -122,12 +122,14 @@
               <span class="sidenav-normal  ms-2  ps-1"> Promotions </span>
             </a>
           </li>
+          @can('3d_admin_access')
           <li class="nav-item ">
             <a class="nav-link text-white " href="{{ route('admin.gametypes.index') }}">
               <span class="sidenav-mini-icon">G</span>
               <span class="sidenav-normal  ms-2  ps-1"> GameType </span>
             </a>
           </li>
+          @endcan
         </ul>
       </div>
     </li>
@@ -405,7 +407,7 @@
     @endcan
     
     
-    @can('three_d_access')
+    @can('3d_admin_access')
     <li class="nav-item">
       <a data-bs-toggle="collapse" href="#three_d" class="nav-link text-white" aria-controls="pagesExamples" role="button" aria-expanded="false">
         <i class="material-icons-round {% if page.brand == 'RTL' %}ms-2{% else %} me-2{% endif %}">settings</i>

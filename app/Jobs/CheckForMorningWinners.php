@@ -49,24 +49,24 @@ class CheckForMorningWinners implements ShouldQueue
         // Get the correct bet digit from result number
         $result_number = $this->twodWiner->result_number;
         $date = Carbon::now()->format('Y-m-d');
-        // Log::info('Today Date is '.$date);
+        Log::info('Today Date is '.$date);
 
         $currentSession = $this->getCurrentSession();
         // Log::info('Today Current Session is '.$currentSession);
 
         $currentSessionTime = $this->getCurrentSessionTime();
-        //Log::info('Current Session Time is '.$currentSessionTime);
+        Log::info('Current Session Time is '.$currentSessionTime);
 
         $open_time = TwodSetting::where('prize_status', 'open')->first();
 
         if (! $open_time || ! is_object($open_time)) {
-            //Log::warning('No valid open time found or invalid data structure.');
+            Log::warning('No valid open time found or invalid data structure.');
 
             return; // Exit early if no valid open time
         }
 
         if (isset($open_time->id)) {
-            //Log::info('Open result date ID:', ['id' => $open_time->id]);
+            Log::info('Open result date ID:', ['id' => $open_time->id]);
 
             // Retrieve winning entries using a valid `id`
             $winningEntries = LotteryTwoDigitPivot::where('twod_setting_id', $open_time->id)
@@ -89,7 +89,7 @@ class CheckForMorningWinners implements ShouldQueue
                     $lottery = Lottery::findOrFail($entry->lottery_id);
                     $user = $lottery->user;
 
-                    $prize = $entry->sub_amount * 85;
+                    $prize = $entry->sub_amount * 80;
                     $user->main_balance += $prize; // Correct, user is an Eloquent model
                     $user->save();
                     $owner = User::find(1);
@@ -98,7 +98,7 @@ class CheckForMorningWinners implements ShouldQueue
                     $entry->prize_sent = true;
                     $entry->save();
                 } catch (\Exception $e) {
-                    //Log::error("Error during transaction for entry ID {$entry->id}: ".$e->getMessage());
+                    Log::error("Error during transaction for entry ID {$entry->id}: ".$e->getMessage());
                     throw $e; // Ensure rollback if needed
                 }
             });

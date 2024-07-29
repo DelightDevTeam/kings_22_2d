@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $admin = $this->createUser(UserType::Admin, 'Owner', 'shwebo2024', '09123456789');
+        $admin = $this->createUser(UserType::Admin, 'Owner', 'king2d', '09123456789');
         (new WalletService)->deposit($admin, 10 * 100_000, TransactionName::CapitalDeposit);
 
         $agent_1 = $this->createUser(UserType::Agent, 'SuperAgent', 'A898737', '09112345674', $admin->id);
@@ -29,7 +29,7 @@ class UsersTableSeeder extends Seeder
             'name' => $name,
             'user_name' => $user_name,
             'phone' => $phone,
-            'password' => Hash::make('password'),
+            'password' => Hash::make('amkfreelancer'),
             'agent_id' => $parent_id,
             'status' => 1,
             'main_balance' => 50000,

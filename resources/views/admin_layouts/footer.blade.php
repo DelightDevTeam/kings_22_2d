@@ -7,7 +7,7 @@
                   document.write(new Date().getFullYear())
                 </script>,
                 by
-                <a href="#" target="_blank" class="font-weight-bold" target="_blank">ShweBo 2D 3D Slot</a>
+                <a href="#" target="_blank" class="font-weight-bold" target="_blank">King 2D</a>
               </div>
             </div>
             {{-- <div class="col-lg-6">

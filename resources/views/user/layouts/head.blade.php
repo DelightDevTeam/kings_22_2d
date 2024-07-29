@@ -4,7 +4,7 @@
 <head>
  <meta charset="UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>ShweBo 2D3D Slot</title>
+ <title>King 2D</title>
  <link rel="icon" href="{{ asset('/assets/img/logo.png') }}">
  <link rel="stylesheet" href="{{ asset('slot_app/css/style.css') }}" />
  <!-- Bootstrap 5 CSS -->

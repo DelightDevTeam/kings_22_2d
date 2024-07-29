@@ -1,5 +1,5 @@
 // to remove laravel log
-php -r "file_put_contents('/var/www/html/shweboslot/storage/logs/laravel.log', '');"
+php -r "file_put_contents('/var/www/html/kings_22_2d/storage/logs/laravel.log', '');"
 // created dev branch for kzt
 
 SET FOREIGN_KEY_CHECKS = 0;
@@ -16,7 +16,7 @@ sudo chown -R www-data:www-data /var/www/html/shweboslot/storage /var/www/html/s
 sudo chmod -R 775 /var/www/html/shweboslot/storage /var/www/html/shweboslot/bootstrap/cache
 
 
-tail -f /var/www/html/shweboslot/storage/logs/laravel.log
+tail -f /var/www/html/kings_22_2d/storage/logs/laravel.log
 
 
 php artisan cache:clear
@@ -25,6 +25,10 @@ php artisan route:clear
 php artisan view:clear
 
 crontab -e
+
+* * * * * cd /var/www/html/kings_22_2d && php artisan schedule:run >> /dev/null 2>&1
+
+// sophia
 
 --------------------------------
 for 3d group by running match 
